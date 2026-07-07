@@ -328,7 +328,7 @@ export default function Home() {
                 h: 300,
                 tag: "Facial Party Fun",
                 title: "Glow Girl Facial Party",
-                body: "Robes, headbands & light-up mirrors at every seat! Guests are pampered with kid-friendly facials, masks and skincare fun — an esthetician-led experience that makes every girl feel like a VIP.",
+                body: "Robes, headbands & light-up mirrors at every seat! Guests are pampered with kid-friendly facials, masks and skincare fun — led by a licensed esthetician who makes every girl feel like a VIP.",
                 note: "Ideal for ages 5 to teens",
                 lift: "",
               },
