@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blush-50: #fff5f8;
+  --color-blush-100: #ffe9f0;
+  --color-blush-200: #ffd3e2;
+  --color-blush-300: #ffb1cc;
+  --color-blush-400: #ff85b0;
+  --color-blush-500: #f75d99;
+  --color-blush-600: #e63d81;
+  --color-blush-700: #c72567;
+  --color-blush-800: #a01d53;
+  --color-blush-900: #7c1a44;
+
+  --color-gold-300: #ecd39a;
+  --color-gold-400: #ddb865;
+  --color-gold-500: #c99d3f;
+  --color-gold-600: #ad8330;
+  --color-gold-700: #8c6825;
+
+  --color-cream: #fffaf6;
+
+  --font-script: var(--font-great-vibes);
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-quicksand);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+  color: #5b2a44;
+  background-color: var(--color-cream);
+  overflow-x: hidden;
+}
+
+.font-script {
+  font-family: var(--font-script), cursive;
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(100deg, #ad8330 10%, #e9cf8f 38%, #c99d3f 55%, #f3e2ae 72%, #ad8330 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-pink-shimmer {
+  background: linear-gradient(100deg, #e63d81 10%, #ff9ec0 45%, #e63d81 75%, #ffb1cc 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-hero {
+  background:
+    radial-gradient(ellipse 80% 55% at 70% 8%, rgba(255, 209, 226, 0.65), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 15% 85%, rgba(255, 224, 236, 0.75), transparent 65%),
+    linear-gradient(165deg, #fff5f8 0%, #ffe9f0 45%, #ffdce9 100%);
+}
+
+.bg-section-pink {
+  background: linear-gradient(180deg, #fff5f8 0%, #ffe4ee 55%, #fff5f8 100%);
+}
+
+.card-glow {
+  box-shadow:
+    0 10px 40px -12px rgba(230, 61, 129, 0.25),
+    0 0 0 1px rgba(255, 177, 204, 0.35);
+}
+
+.gold-border {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#fffaf6, #fffaf6) padding-box,
+    linear-gradient(120deg, #ddb865, #f3e2ae, #c99d3f, #ecd39a) border-box;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.75) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.15) rotate(20deg); }
+}
+
+.sparkle {
+  animation: sparkle 2.6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle, .floaty {
+    animation: none;
+  }
+}
