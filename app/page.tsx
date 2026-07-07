@@ -36,6 +36,21 @@ function Crown({ className = "" }: { className?: string }) {
   );
 }
 
+function CheckCircle({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M7.5 12.2l3 3 6-6.4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function SectionHeading({
   script,
   title,
@@ -68,7 +83,7 @@ function BookButtons({ light = false }: { light?: boolean }) {
         href={PHONE_HREF}
         className="w-full sm:w-auto text-center rounded-full bg-gradient-to-r from-blush-600 to-blush-500 px-8 py-4 text-lg font-bold text-white shadow-lg shadow-blush-500/30 transition hover:scale-105 hover:shadow-blush-500/50"
       >
-        📞 Call or Text {PHONE}
+        Call or Text {PHONE}
       </a>
       <a
         href={INSTAGRAM}
@@ -80,7 +95,7 @@ function BookButtons({ light = false }: { light?: boolean }) {
             : "gold-border text-gold-700 bg-cream shadow-md"
         }`}
       >
-        💌 DM us on Instagram
+        DM us on Instagram
       </a>
     </div>
   );
@@ -115,7 +130,7 @@ export default function Home() {
             href={PHONE_HREF}
             className="rounded-full bg-gradient-to-r from-blush-600 to-blush-500 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-blush-500/30 transition hover:scale-105"
           >
-            Book Now ♥
+            Book Now
           </a>
         </div>
       </header>
@@ -144,8 +159,10 @@ export default function Home() {
               </span>
             </div>
 
-            <p className="inline-block rounded-full bg-white/80 border border-gold-400/60 px-5 py-1.5 text-sm font-bold tracking-widest uppercase text-gold-600 mb-5 shadow-sm">
-              ✨ We bring the spa to you! ✨
+            <p className="inline-flex items-center gap-2 rounded-full bg-white/80 border border-gold-400/60 px-5 py-1.5 text-sm font-bold tracking-widest uppercase text-gold-600 mb-5 shadow-sm">
+              <Sparkle className="w-3.5 h-3.5" />
+              We bring the spa to you!
+              <Sparkle className="w-3.5 h-3.5" />
             </p>
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-tight text-blush-900">
@@ -203,11 +220,14 @@ export default function Home() {
       {/* ============ PERFECT FOR STRIP ============ */}
       <section aria-label="Perfect for" className="bg-gradient-to-r from-blush-600 via-blush-500 to-blush-600 py-5">
         <ul className="mx-auto max-w-6xl px-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-white font-bold tracking-wide text-sm sm:text-base">
-          <li>🎂 Birthdays</li>
-          <li>🌙 Sleepovers</li>
-          <li>💖 Girls&apos; Day</li>
-          <li>🎉 Special Occasions</li>
-          <li>✨ Just Because!</li>
+          {["Birthdays", "Sleepovers", "Girls' Day", "Special Occasions", "Just Because!"].map(
+            (item) => (
+              <li key={item} className="flex items-center gap-2">
+                <Heart className="w-3 h-3 text-white/70" />
+                {item}
+              </li>
+            )
+          )}
         </ul>
       </section>
 
@@ -241,7 +261,7 @@ export default function Home() {
                   kid-friendly facials, masks and skincare fun — led by a licensed esthetician
                   who makes every girl feel like a VIP.
                 </p>
-                <p className="mt-4 text-sm font-bold text-gold-600">Ideal for ages 5 to teens ♥</p>
+                <p className="mt-4 text-sm font-bold text-gold-600">Ideal for ages 5 to teens</p>
               </div>
             </article>
 
@@ -255,7 +275,7 @@ export default function Home() {
                   className="w-full h-56 object-cover"
                 />
                 <span className="absolute bottom-3 left-3 rounded-full bg-blush-600 text-white text-xs font-bold px-4 py-1.5 shadow">
-                  MOST LOVED ✨
+                  MOST LOVED
                 </span>
               </div>
               <div className="p-6 flex-1 flex flex-col">
@@ -265,7 +285,7 @@ export default function Home() {
                   trays for each guest. The sleepover of their dreams appears in your living
                   room — and disappears when the fun is done!
                 </p>
-                <p className="mt-4 text-sm font-bold text-gold-600">Setup, styling & takedown included ♥</p>
+                <p className="mt-4 text-sm font-bold text-gold-600">Setup, styling & takedown included</p>
               </div>
             </article>
 
@@ -289,7 +309,7 @@ export default function Home() {
                   to your party, from pretty polish for the littles to full sets for teens
                   &amp; moms.
                 </p>
-                <p className="mt-4 text-sm font-bold text-gold-600">All ages welcome ♥</p>
+                <p className="mt-4 text-sm font-bold text-gold-600">All ages welcome</p>
               </div>
             </article>
           </div>
@@ -304,7 +324,7 @@ export default function Home() {
                 href={SMS_HREF}
                 className="inline-block rounded-full bg-gradient-to-r from-gold-500 to-gold-400 px-8 py-4 text-lg font-bold text-white shadow-lg shadow-gold-400/40 transition hover:scale-105"
               >
-                💬 Text {PHONE} for a Quote
+                Request a Custom Quote
               </a>
             </div>
           </div>
@@ -323,14 +343,14 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <ul className="space-y-4">
               {[
-                ["🚗", "Delivery, setup & takedown", "We arrive, create the magic, and pack it all away."],
-                ["🧖‍♀️", "All spa supplies & equipment", "Robes, headbands, mirrors, bowls, skincare & more."],
-                ["🎀", "Themed décor & styling", "Pink, gold & totally photo-worthy — styled to your theme."],
-                ["💝", "Customizable experience", "Tailored to your guest of honor, her age & her besties."],
-                ["🥂", "Hassle-free for parents", "You relax and snap pictures. We take care of the rest!"],
-              ].map(([emoji, title, desc]) => (
+                ["Delivery, setup & takedown", "We arrive, create the magic, and pack it all away."],
+                ["All spa supplies & equipment", "Robes, headbands, mirrors, bowls, skincare & more."],
+                ["Themed décor & styling", "Pink, gold & totally photo-worthy — styled to your theme."],
+                ["Customizable experience", "Tailored to your guest of honor, her age & her besties."],
+                ["Hassle-free for parents", "You relax and snap pictures. We take care of the rest!"],
+              ].map(([title, desc]) => (
                 <li key={title} className="flex gap-4 rounded-2xl bg-white/80 p-5 card-glow">
-                  <span className="text-3xl" aria-hidden="true">{emoji}</span>
+                  <CheckCircle className="w-8 h-8 shrink-0 text-blush-500 mt-0.5" />
                   <div>
                     <h3 className="font-bold text-blush-800 text-lg">{title}</h3>
                     <p className="text-blush-900/70">{desc}</p>
@@ -352,8 +372,12 @@ export default function Home() {
                   Each guest takes home a sweet spa goodie bag filled with pampering treats —
                   the perfect ending to a magical day.
                 </p>
-                <div className="mt-6 flex justify-center gap-2 text-2xl" aria-hidden="true">
-                  💗 🎁 ✨ 💅 🌸
+                <div className="mt-6 flex justify-center items-center gap-3" aria-hidden="true">
+                  <Sparkle className="w-4 h-4 text-gold-400" />
+                  <Heart className="w-5 h-5 text-blush-400" />
+                  <Sparkle className="w-6 h-6 text-gold-500" />
+                  <Heart className="w-5 h-5 text-blush-400" />
+                  <Sparkle className="w-4 h-4 text-gold-400" />
                 </div>
               </div>
               <Sparkle className="absolute -top-4 -right-3 w-8 h-8 text-gold-400" />
@@ -375,8 +399,8 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Facial add-ons */}
             <div className="rounded-3xl bg-white card-glow p-7">
-              <h3 className="font-display text-2xl font-bold text-blush-800 flex items-center gap-2">
-                <span aria-hidden="true">🧖‍♀️</span> Facial Add-Ons
+              <h3 className="font-display text-2xl font-bold text-blush-800 flex items-center gap-2.5">
+                <Sparkle className="w-5 h-5 text-gold-500 shrink-0" /> Facial Add-Ons
               </h3>
               <ul className="mt-5 space-y-3">
                 {[
@@ -397,8 +421,8 @@ export default function Home() {
 
             {/* Nail services */}
             <div className="rounded-3xl bg-white card-glow p-7">
-              <h3 className="font-display text-2xl font-bold text-blush-800 flex items-center gap-2">
-                <span aria-hidden="true">💅</span> Nail Services{" "}
+              <h3 className="font-display text-2xl font-bold text-blush-800 flex items-center gap-2.5">
+                <Sparkle className="w-5 h-5 text-gold-500 shrink-0" /> Nail Services{" "}
                 <span className="text-sm font-body font-semibold text-gold-600">(all ages)</span>
               </h3>
               <p className="mt-4 text-xs font-bold tracking-widest uppercase text-gold-600">
@@ -436,8 +460,8 @@ export default function Home() {
 
             {/* Popular extras */}
             <div className="rounded-3xl bg-white card-glow p-7 md:col-span-2 lg:col-span-1">
-              <h3 className="font-display text-2xl font-bold text-blush-800 flex items-center gap-2">
-                <span aria-hidden="true">🎈</span> Popular Extras
+              <h3 className="font-display text-2xl font-bold text-blush-800 flex items-center gap-2.5">
+                <Sparkle className="w-5 h-5 text-gold-500 shrink-0" /> Popular Extras
               </h3>
               <ul className="mt-5 space-y-3">
                 {[
@@ -470,14 +494,14 @@ export default function Home() {
           </h2>
           <div className="mt-10 grid sm:grid-cols-4 gap-8">
             {[
-              ["1", "💌", "Book your date", "Call, text or DM us your date & party details"],
-              ["2", "🚗", "We come to you", "We arrive and set up all the spa party magic"],
-              ["3", "👑", "Girls get pampered", "Facials, nails, giggles & unforgettable memories"],
-              ["4", "✨", "We handle cleanup", "We pack everything away — you just enjoy!"],
-            ].map(([num, emoji, title, desc]) => (
+              ["1", "Book your date", "Call, text or DM us your date & party details"],
+              ["2", "We come to you", "We arrive and set up all the spa party magic"],
+              ["3", "Girls get pampered", "Facials, nails, giggles & unforgettable memories"],
+              ["4", "We handle cleanup", "We pack everything away — you just enjoy!"],
+            ].map(([num, title, desc]) => (
               <div key={num} className="text-white">
-                <div className="mx-auto w-16 h-16 rounded-full bg-white/15 border-2 border-white/50 flex items-center justify-center text-3xl">
-                  <span aria-hidden="true">{emoji}</span>
+                <div className="mx-auto w-16 h-16 rounded-full bg-white/15 border-2 border-white/50 flex items-center justify-center font-display text-3xl font-bold">
+                  {num}
                 </div>
                 <p className="mt-3 font-script text-2xl text-white/90">step {num}</p>
                 <h3 className="font-bold text-lg">{title}</h3>
@@ -507,18 +531,18 @@ export default function Home() {
             <BookButtons />
           </div>
 
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+          <div className="mt-12 grid sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
             <a href={PHONE_HREF} className="rounded-2xl bg-white/85 p-5 card-glow transition hover:-translate-y-1">
               <p className="text-xs font-bold uppercase tracking-widest text-gold-600">Call or Text</p>
               <p className="mt-1 font-bold text-blush-800">{PHONE}</p>
             </a>
             <a href={WEBSITE} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white/85 p-5 card-glow transition hover:-translate-y-1">
               <p className="text-xs font-bold uppercase tracking-widest text-gold-600">Website</p>
-              <p className="mt-1 font-bold text-blush-800">taylormadeesthetics.net</p>
+              <p className="mt-1 font-bold text-blush-800 break-all">taylormadeesthetics.net</p>
             </a>
             <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white/85 p-5 card-glow transition hover:-translate-y-1">
               <p className="text-xs font-bold uppercase tracking-widest text-gold-600">Instagram</p>
-              <p className="mt-1 font-bold text-blush-800">@_taylormadeesthetics_</p>
+              <p className="mt-1 font-bold text-blush-800 break-all">@_taylormadeesthetics_</p>
             </a>
             <a href={FACEBOOK} target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white/85 p-5 card-glow transition hover:-translate-y-1">
               <p className="text-xs font-bold uppercase tracking-widest text-gold-600">Facebook</p>
